@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}Book a Doc{% endblock %}</title>
+        <meta name="description" content="book a doctor appointment, medical, find doctor, doctors">
+        <meta name="author" content="Kushagra Sinha (http://j4nu5.com), Vivek Narayanan">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
+        {% block externals %}{% endblock %}
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1>Book a Doc</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <div>{% block content %}{% endblock %}</div>
+            <footer>
+                &copy; All rights reserved.
+            </footer>
+        </div>
+    </body>
+</html>
