@@ -20,7 +20,7 @@ def register_patient(request):
         'form': form,
     }
     
-    return render_to_response('registration/registration.html', template_date, context_instance=RequestContext(request))
+    return render_to_response('registration/registration.html', template_data, context_instance=RequestContext(request))
 
 def register_doctor(request):
     """
@@ -38,9 +38,9 @@ def register_doctor(request):
         'form': form,
     }
     
-    return render_to_response('registration/registration.html', template_date, context_instance=RequestContext(request))
+    return render_to_response('registration/registration.html', template_data, context_instance=RequestContext(request))
 
-def index(request):
+def index(request, username=None):
     """
     Displays user profile. User may be patient or doctor.
     Doctor's profile may be viewed by anyone.
@@ -83,20 +83,20 @@ def search(request):
     
     return render_to_response('search.html', template_data, context_instance=RequestContext(request))
 
-def appointments_index(request):
+def appointments_index(request, username=None):
     """
     Displays a list of appointments. User may be doctor or patient.
     """
     pass
 
-def appointments_book(request):
+def appointments_book(request, username=None):
     """
     Books an appointment. User may be patient or doctor.
     Doctors can use it to book slots in their schedules.
     """
     pass
 
-def appointments_cancel(request):
+def appointments_cancel(request, username=None):
     """
     Cancels an appointment, sending a message to the affected parties.
     Doctors can use it to cancel their already booked appointments.
