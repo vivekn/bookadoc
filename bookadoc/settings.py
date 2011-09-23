@@ -9,6 +9,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 ADMINS = (
     ('Kushagra Sinha', 'sinha.kushagra@gmail.com'),
+    ('Vivek Narayanan', 'mail@vivekn.co.cc'),
 )
 
 MANAGERS = ADMINS
@@ -151,3 +152,9 @@ LOGGING = {
         },
     }
 }
+
+#Hack to work on different local settings in a module called local_settings.py
+try:
+    from bookadoc.local_settings import *
+except:
+    pass
