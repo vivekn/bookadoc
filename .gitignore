@@ -9,3 +9,4 @@
 *.js~
 *.coffee~
 local_settings.py
+bookadoc/app/static/*
