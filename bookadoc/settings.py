@@ -116,6 +116,7 @@ TEMPLATE_DIRS = (
     
     os.path.join(PROJECT_ROOT, 'templates/'),
 )
+JINJA2_TEMPLATE_DIRS = TEMPLATE_DIRS
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -156,5 +157,5 @@ LOGGING = {
 #Hack to work on different local settings in a module called local_settings.py
 try:
     from bookadoc.local_settings import *
-except:
+except ImportError:
     pass

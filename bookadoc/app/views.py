@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
+from bookadoc.djangojinja2 import render_to_response
 from django.template.context import RequestContext
 from bookadoc.app.forms import PatientRegistrationForm, DoctorRegistrationForm, DoctorSearchForm
 from bookadoc.app.models import DoctorProfile
@@ -20,7 +20,7 @@ def register_patient(request):
         'form': form,
     }
     
-    return render_to_response('registration/registration.html', template_data, context_instance=RequestContext(request))
+    return render_to_response('registration/registration.html', template_data)
 
 def register_doctor(request):
     """
@@ -38,7 +38,7 @@ def register_doctor(request):
         'form': form,
     }
     
-    return render_to_response('registration/registration.html', template_data, context_instance=RequestContext(request))
+    return render_to_response('registration/registration.html', template_data)
 
 def index(request, username=None):
     """
@@ -73,7 +73,7 @@ def search(request):
                 'results': qset.all(),
             }
             
-            return render_to_response('search.html', template_data, context_instance=RequestContext(request))
+            return render_to_response('search.html', template_data)
     else:
         form = DoctorSearchForm()
     
@@ -81,7 +81,7 @@ def search(request):
         'form': form,
     }
     
-    return render_to_response('search.html', template_data, context_instance=RequestContext(request))
+    return render_to_response('search.html', template_data)
 
 def appointments_index(request, username=None):
     """
