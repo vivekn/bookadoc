@@ -1,0 +1,11 @@
+*.swp
+*.swn
+*.swo
+*.project
+*.project*
+*.pyc
+*.py~
+*.html~
+*.js~
+*.coffee~
+local_settings.py
