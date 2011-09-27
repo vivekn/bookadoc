@@ -24,7 +24,6 @@ from django.core.exceptions import ImproperlyConfigured
 from django.template.context import get_standard_processors
 from django.template import TemplateDoesNotExist
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
-from jinja2.defaults import DEFAULT_NAMESPACE
 from django.http import HttpResponse
 from urllib import quote_plus
 
@@ -74,6 +73,8 @@ def render_to_string(template_name, context=None, request=None,
     context = dict(context or {})
     if request is not None:
         context['request'] = request
+        if 'user' in request and request.user and 'user' not in context:
+            context['user'] = request.user
         for processor in chain(get_standard_processors(), processors or ()):
             context.update(processor(request))
     return get_template(template_name).render(context)
