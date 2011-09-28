@@ -14,11 +14,11 @@ def register_patient(request):
             return HttpResponseRedirect('/')
     else:
         form = PatientRegistrationForm()
-    
-    template_data, request = {
+
+    template_data = {
         'form': form,
     }
-    
+
     return render_to_response('registration/registration.html', template_data, request)
 
 def register_doctor(request):
@@ -32,11 +32,11 @@ def register_doctor(request):
             return HttpResponseRedirect('/')
     else:
         form = DoctorRegistrationForm()
-    
-    template_data, request = {
+
+    template_data = {
         'form': form,
     }
-    
+
     return render_to_response('registration/registration.html', template_data, request)
 
 def index(request, username=None):
@@ -60,26 +60,26 @@ def search(request):
             name = request.POST.get('name', None)
             specialization = request.POST.get('specialization', None)
             location = request.POST.get('location', None)
-            
+
             if name:
                 qset = qset.filter(name__icontains=name)
             if specialization:
                 qset = qset.filter(specialization__icontains=specialization)
             if location:
                 qset = qset.filter(location__icontains=location)
-            
-            template_data, request = {
+
+            template_data = {
                 'results': qset.all(),
             }
-            
+
             return render_to_response('search.html', template_data, request)
     else:
         form = DoctorSearchForm()
-    
-    template_data, request = {
+
+    template_data = {
         'form': form,
     }
-    
+
     return render_to_response('search.html', template_data, request)
 
 def appointments_index(request, username=None):
